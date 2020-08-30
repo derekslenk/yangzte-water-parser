@@ -1,5 +1,5 @@
 #!/bin/bash
-doexport timestamp=`printf "$(date '+%s')"`
+export timestamp=`printf "$(date '+%s')"`
 wget -O out/levels-$timestamp.html http://www.cjh.com.cn/sqindex.html
 
 printf "Searching for 3GD\n"
