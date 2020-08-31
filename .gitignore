@@ -1,4 +1,5 @@
-out/*
+out/
 .vscode/
-graphs/*
+graphs/
 archive/
+csv/*
