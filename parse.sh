@@ -1,8 +1,9 @@
 #!/bin/bash
-doexport timestamp=`printf "$(date '+%s')"`
-wget -O out/levels-$timestamp.html http://www.cjh.com.cn/sqindex.html
+export timestamp=`printf "$(date '+%F-%H%M%S-%s')"`
+printf "Timestamp is %s\n" $timestamp
+wget -O out/$timestamp.html http://www.cjh.com.cn/sqindex.html
 
-printf "Searching for 3GD\n"
+#Empty out all the CSVs. I am sure there is a better way to do this
 echo "timestamp outflow inflow risedrop level" > csv/three-gorges.csv
 echo "timestamp outflow inflow risedrop level" > csv/cuntan.csv
 echo "timestamp outflow inflow risedrop level" > csv/hankou.csv
@@ -12,6 +13,7 @@ echo "timestamp wulong_outflow wulong_inflow wulong_risedrop wulong_level" > csv
 echo "timestamp shashi_outflow shashi_inflow shashi_risedrop shashi_level" > csv/shashi.csv
 echo "timestamp chenglingji_outflow chenglingji_inflow chenglingji_risedrop chenglingji_level" > csv/chenglingji.csv
 
+#Launch the json parsin threads as separate processes as to not be linear
 cat out/*.html | grep "var sssq =" | cut -d "=" -f 2 | cut -d ";" -f 1 | \
     jq -r '(map(select(.stnm=="三峡水库"))[]) | "\(.tm/1000) \(.oq) \(.q) \(.wptn) \(.z)"' | \
     sort | uniq >> csv/three-gorges.csv &
@@ -37,17 +39,15 @@ cat out/*.html | grep "var sssq =" | cut -d "=" -f 2 | cut -d ";" -f 1 | \
     jq -r '(map(select(.stnm=="武隆"))[]) | "\(.tm/1000) \(.oq) \(.q) \(.wptn) \(.z)"' | \
     sort | uniq >> csv/wulong.csv &
 
-
 cat out/*.html | grep "var sssq =" | cut -d "=" -f 2 | cut -d ";" -f 1 | \
     jq -r '(map(select(.stnm=="沙市"))[]) | "\(.tm/1000) \(.oq) \(.q) \(.wptn) \(.z)"' | \
     sort | uniq >> csv/shashi.csv &
-
 
 cat out/*.html | grep "var sssq =" | cut -d "=" -f 2 | cut -d ";" -f 1 | \
     jq -r '(map(select(.stnm=="城陵矶(七)"))[]) | "\(.tm/1000) \(.oq) \(.q) \(.wptn) \(.z)"' | \
     sort | uniq >> csv/chenglingji.csv &
 
-wait
+wait #Wait for the above to finish
 
 printf "Joining cuntan and wulong\n"
 join csv/cuntan.csv csv/wulong.csv > csv/cuntan-wulong.csv
@@ -113,5 +113,5 @@ printf "_CURRENT FLOW RATES_\n" >> levels.txt
 printf "Outflow: %s m^3/s\n" $TGDOUTFLOW >> levels.txt
 printf "Inflow: %s m^3/s\n" $TGDINFLOW >> levels.txt
 
-# aws s3 cp levels.txt s3://3gd.slenk.com
+aws s3 cp levels.txt s3://3gd.slenk.com/index.html
 # aws s3 cp csv/ s3://3gd.slenk.com/csv --recursive

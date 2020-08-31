@@ -2,4 +2,4 @@ out/
 .vscode/
 graphs/
 archive/
-csv/
+csv/*
