@@ -125,7 +125,7 @@ if echo $CUNTAN $PREVCUNTAN | awk '{exit !( $1 > $2)}'; then
 elif echo $CUNTAN $PREVCUNTAN | awk '{exit !( $1 < $2)}'; then
     printf "Chongqing: %s ↓\n" $CUNTAN >> levels.txt
 else
-    printf "CHongqing: %s -\n" $CUNTAN >> levels.txt
+    printf "CHongqing: %s ‒\n" $CUNTAN >> levels.txt
 fi
 
 if echo $TGD $PREVTGD | awk '{exit !( $1 > $2)}'; then
@@ -133,7 +133,7 @@ if echo $TGD $PREVTGD | awk '{exit !( $1 > $2)}'; then
 elif echo $TGD $PREVTGD | awk '{exit !( $1 < $2)}'; then
     printf "Three Gorges Dam: %s ↓\n" $TGD >> levels.txt
 else
-    printf "Three Gorges Dam: %s -\n" $TGD >> levels.txt
+    printf "Three Gorges Dam: %s ‒\n" $TGD >> levels.txt
 fi
 
 if echo $YICHANG $PREVYICHANG | awk '{exit !( $1 > $2)}'; then
@@ -141,7 +141,7 @@ if echo $YICHANG $PREVYICHANG | awk '{exit !( $1 > $2)}'; then
 elif echo $YICHANG $PREVYICHANG | awk '{exit !( $1 < $2)}'; then
     printf "Yichang: %s ↓\n" $YICHANG >> levels.txt
 else
-    printf "Yichang: %s -\n" $YICHANG >> levels.txt
+    printf "Yichang: %s ‒\n" $YICHANG >> levels.txt
 fi
 
 if echo $HANKOU $PREVHANKOU | awk '{exit !( $1 > $2)}'; then
@@ -149,7 +149,7 @@ if echo $HANKOU $PREVHANKOU | awk '{exit !( $1 > $2)}'; then
 elif echo $HANKOU $PREVHANKOU | awk '{exit !( $1 < $2)}'; then
     printf "Hankou/Wuhan: %s ↓\n" $HANKOU >> levels.txt
 else
-    printf "Hankou/Wuhan: %s -\n" $HANKOU >> levels.txt
+    printf "Hankou/Wuhan: %s ‒\n" $HANKOU >> levels.txt
 fi
 
 printf "\nCURRENT FLOW RATES\n" >> levels.txt
@@ -161,7 +161,7 @@ if (( $NEWOUTFLOW > $OUTFLOW )); then
 elif (( $NEWOUTFLOW < $OUTFLOW )); then
     printf "Outflow: %s m³/s ↓\n" $NEWOUTFLOW >> levels.txt
 else
-    printf "Outflow: %s m³/s -\n" $NEWOUTFLOW >> levels.txt
+    printf "Outflow: %s m³/s ‒\n" $NEWOUTFLOW >> levels.txt
 fi
 
 printf "Prev inflow is: %s\n" $PREVINFLOW
@@ -171,7 +171,7 @@ if (( $NEWINFLOW > $PREVINFLOW )); then
 elif (( $NEWINFLOW < $PREVINFLOW )); then
     printf "Inflow: %s m³/s ↓\n" $NEWINFLOW >> levels.txt
 else
-    printf "Inflow: %s m³/s -\n" $NEWINFLOW >> levels.txt
+    printf "Inflow: %s m³/s ‒\n" $NEWINFLOW >> levels.txt
 fi
 
 aws s3 cp levels.txt s3://3gd.slenk.com/index.html
