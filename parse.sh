@@ -159,7 +159,6 @@ printf "New outflow is: %s\n" $NEWOUTFLOW
 if (( $NEWOUTFLOW > $OUTFLOW )); then
     printf "Outflow: %s m³/s ↑\n" $NEWOUTFLOW >> levels.txt
 elif (( $NEWOUTFLOW < $OUTFLOW )); then
-    
     printf "Outflow: %s m³/s ↓\n" $NEWOUTFLOW >> levels.txt
 else
     printf "Outflow: %s m³/s -\n" $NEWOUTFLOW >> levels.txt

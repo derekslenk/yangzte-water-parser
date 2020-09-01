@@ -1,6 +1,6 @@
 CURRENT WATER LEVELS
 Chongqing: 174.39 ↑
-Three Gorges Dam: 159.4 ↓
+Three Gorges Dam: 159.38 ↓
 Yichang: 49.54 ↑
 Hankou/Wuhan: 26.2 ↓
 
