@@ -49,10 +49,10 @@ cat out/*.html | grep "var sssq =" | cut -d "=" -f 2 | cut -d ";" -f 1 | \
 
 wait #Wait for the above to finish
 
-printf "Joining cuntan and wulong\n"
+#printf "Joining cuntan and wulong\n"
 join csv/cuntan.csv csv/wulong.csv > csv/cuntan-wulong.csv
-printf "Joining shashi and chenglinji\n"
-join csv/shashi.csv csv/chenglingji.csv > csv/shashi-chenglingji.csv
+#printf "Joining shashi and chenglinji\n"
+#join csv/shashi.csv csv/chenglingji.csv > csv/shashi-chenglingji.csv
 
 rm -rf graphs
 
@@ -60,15 +60,15 @@ mkdir graphs
 
 
 ./three-gorges.gnuplot &
-./cuntan.gnuplot &
-./hankou.gnuplot &
-./hankou-prev.gnuplot &
+#./cuntan.gnuplot &
+#./hankou.gnuplot &
+#./hankou-prev.gnuplot &
 ./yichang.gnuplot &
-./shashi-chenglingji.gnuplot &
+#./shashi-chenglingji.gnuplot &
 
 wait
 
-ALL="three-gorges three-gorges-3d three-gorges-24h cuntan cuntan-3d cuntan-24h hankou hankou-3d hankou-24h hankou-prev yichang yichang-3d yichang-24h shashi-chenglingji shashi-chenglingji-3d shashi-chenglingji-24h"
+ALL="three-gorges three-gorges-3d three-gorges-24h yichang yichang-3d yichang-24h"
 
 for fn in $ALL; do
     printf "pdftocairo for %s\n" $fn
