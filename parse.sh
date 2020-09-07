@@ -174,5 +174,5 @@ else
     printf "Inflow: %s m³/s ‒\n" $NEWINFLOW >> levels.txt
 fi
 
-aws s3 cp levels.txt s3://3gd.slenk.com/index.html
+# aws s3 cp levels.txt s3://3gd.slenk.com/index.html
 # aws s3 cp csv/ s3://3gd.slenk.com/csv --recursive
