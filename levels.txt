@@ -1,9 +1,126 @@
 CURRENT WATER LEVELS
-Chongqing: 169.42 ↑
-Three Gorges Dam: 156.62 ↓
-Yichang: 47.87 ↓
-Hankou/Wuhan: 25.24 ↓
+Chongqing: 174.77 ↑
+Three Gorges Dam: 174.44 ‒
+Yichang: 40.37 ↓
+Hankou/Wuhan: 15.07 ↓
 
 CURRENT FLOW RATES
-Outflow: 27700 m³/s ‒
-Inflow: 19500 m³/s ↑
+Outflow: 8010 m³/s ↑
+Inflow: 9999 m³/s ↓
+CURRENT WATER LEVELS
+Chongqing: 174.77 ↑
+Three Gorges Dam: 174.44 ‒
+Yichang: 40.37 ↓
+Hankou/Wuhan: 15.07 ↓
+
+CURRENT FLOW RATES
+Outflow: 8010 m³/s ‒
+Inflow: 9999 m³/s ↑
+CURRENT WATER LEVELS
+Chongqing: 174.77 ↑
+Three Gorges Dam: 174.44 ‒
+Yichang: 40.37 ↓
+Hankou/Wuhan: 15.07 ↓
+
+CURRENT FLOW RATES
+Outflow: 8010 m³/s ‒
+Inflow: 9999 m³/s ↑
+CURRENT WATER LEVELS
+Chongqing: 174.77 ↑
+Three Gorges Dam: 174.44 ‒
+Yichang: 40.37 ↓
+Hankou/Wuhan: 15.07 ↓
+
+CURRENT FLOW RATES
+Outflow: 8010 m³/s ‒
+Inflow: 9999 m³/s ↑
+CURRENT WATER LEVELS
+Chongqing: 174.77 ↑
+Three Gorges Dam: 174.44 ‒
+Yichang: 40.37 ↓
+Hankou/Wuhan: 15.07 ↓
+
+CURRENT FLOW RATES
+Outflow: 8010 m³/s ‒
+Inflow: 9999 m³/s ↑
+CURRENT WATER LEVELS
+Chongqing: 174.77 ↑
+Three Gorges Dam: 174.44 ‒
+Yichang: 40.37 ↓
+Hankou/Wuhan: 15.07 ↓
+
+CURRENT FLOW RATES
+Outflow: 8010 m³/s ‒
+Inflow: 9999 m³/s ↑
+CURRENT WATER LEVELS
+Chongqing: 174.77 ↑
+Three Gorges Dam: 174.44 ‒
+Yichang: 40.37 ↓
+Hankou/Wuhan: 15.07 ↓
+
+CURRENT FLOW RATES
+Outflow: 8010 m³/s ‒
+Inflow: 9999 m³/s ↑
+CURRENT WATER LEVELS
+Chongqing: 174.77 ↑
+Three Gorges Dam: 174.44 ‒
+Yichang: 40.37 ↓
+Hankou/Wuhan: 15.07 ↓
+
+CURRENT FLOW RATES
+Outflow: 8010 m³/s ‒
+Inflow: 9999 m³/s ↑
+CURRENT WATER LEVELS
+Chongqing: 174.77 ↑
+Three Gorges Dam: 174.44 ‒
+Yichang: 40.37 ↓
+Hankou/Wuhan: 15.07 ↓
+
+CURRENT FLOW RATES
+Outflow: 8010 m³/s ‒
+Inflow: 9999 m³/s ↑
+CURRENT WATER LEVELS
+Chongqing: 174.77 ↑
+Three Gorges Dam: 174.44 ‒
+Yichang: 40.37 ↓
+Hankou/Wuhan: 15.07 ↓
+
+CURRENT FLOW RATES
+Outflow: 8010 m³/s ‒
+Inflow: 9999 m³/s ↑
+CURRENT WATER LEVELS
+Chongqing: 174.77 ↑
+Three Gorges Dam: 174.44 ‒
+Yichang: 40.37 ↓
+Hankou/Wuhan: 15.07 ↓
+
+CURRENT FLOW RATES
+Outflow: 8010 m³/s ‒
+Inflow: 9999 m³/s ↑
+CURRENT WATER LEVELS
+Chongqing: 174.77 ↑
+Three Gorges Dam: 174.44 ‒
+Yichang: 40.37 ↓
+Hankou/Wuhan: 15.07 ↓
+
+CURRENT FLOW RATES
+Outflow: 8010 m³/s ‒
+Inflow: 9999 m³/s ↑
+CURRENT WATER LEVELS
+Chongqing: 174.77 ↑
+Three Gorges Dam: 174.44 ‒
+Yichang: 40.37 ↓
+Hankou/Wuhan: 15.07 ↓
+
+CURRENT FLOW RATES
+Outflow: 8010 m³/s ‒
+Inflow: 9999 m³/s ↑
+CURRENT WATER LEVELS
+Chongqing: 174.77 ↑
+Three Gorges Dam: 174.44 ‒
+Yichang: 40.37 ↓
+Hankou/Wuhan: 15.07 ↓
+
+CURRENT FLOW RATES
+Outflow: 8010 m³/s ‒
+Inflow: 9999 m³/s ↑

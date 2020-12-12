@@ -89,6 +89,12 @@ done
 
 wait
 
+for fn in $ALL; do
+    cp graphs/$fn.png /mnt/obs/tgd/graphs &
+done
+
+wait
+
 # Previous inflow value
 CURINFLOW=`tail -n 1 levels.txt | awk '{ print $2 }'`
 PREVINFLOW=`cat csv/three-gorges.csv | cut -d ' ' -f3 | grep -v "^0$" | tail -n 2 | head -n 1`
@@ -117,62 +123,97 @@ then
 fi   
 
 #Thanks https://stackoverflow.com/questions/11237794/how-to-compare-two-decimal-numbers-in-bash-awk
+rm index.html && touch index.html
+printf "<html><body>" > index.html
 
-printf "CURRENT WATER LEVELS\n" > levels.txt
+printf "CURRENT WATER LEVELS\n" | tee -a levels.txt index.html
+
+printf "<br/>" >> index.html
 
 if echo $CUNTAN $PREVCUNTAN | awk '{exit !( $1 > $2)}'; then
-    printf "Chongqing: %s ↑\n" $CUNTAN >> levels.txt
+    printf "Chongqing: %s ↑\n" $CUNTAN | tee -a  levels.txt index.html
 elif echo $CUNTAN $PREVCUNTAN | awk '{exit !( $1 < $2)}'; then
-    printf "Chongqing: %s ↓\n" $CUNTAN >> levels.txt
+    printf "Chongqing: %s ↓\n" $CUNTAN | tee -a  levels.txt index.html
 else
-    printf "CHongqing: %s ‒\n" $CUNTAN >> levels.txt
+    printf "Chongqing: %s ‒\n" $CUNTAN | tee -a  levels.txt index.html
 fi
+
+printf "<br/>" >> index.html
 
 if echo $TGD $PREVTGD | awk '{exit !( $1 > $2)}'; then
-    printf "Three Gorges Dam: %s ↑\n" $TGD >> levels.txt
+    printf "Three Gorges Dam: %s ↑\n" $TGD | tee -a levels.txt index.html
 elif echo $TGD $PREVTGD | awk '{exit !( $1 < $2)}'; then
-    printf "Three Gorges Dam: %s ↓\n" $TGD >> levels.txt
+    printf "Three Gorges Dam: %s ↓\n" $TGD | tee -a  levels.txt index.html
 else
-    printf "Three Gorges Dam: %s ‒\n" $TGD >> levels.txt
+    printf "Three Gorges Dam: %s ‒\n" $TGD | tee -a  levels.txt index.html
 fi
+
+printf "<br/>" >> index.html
 
 if echo $YICHANG $PREVYICHANG | awk '{exit !( $1 > $2)}'; then
-    printf "Yichang: %s ↑\n" $YICHANG >> levels.txt
+    printf "Yichang: %s ↑\n" $YICHANG | tee -a  levels.txt index.html
 elif echo $YICHANG $PREVYICHANG | awk '{exit !( $1 < $2)}'; then
-    printf "Yichang: %s ↓\n" $YICHANG >> levels.txt
+    printf "Yichang: %s ↓\n" $YICHANG | tee -a  levels.txt index.html
 else
-    printf "Yichang: %s ‒\n" $YICHANG >> levels.txt
+    printf "Yichang: %s ‒\n" $YICHANG | tee -a  levels.txt index.html
 fi
+
+printf "<br/>" >> index.html
 
 if echo $HANKOU $PREVHANKOU | awk '{exit !( $1 > $2)}'; then
-    printf "Hankou/Wuhan: %s ↑\n" $HANKOU >> levels.txt
+    printf "Hankou/Wuhan: %s ↑\n" $HANKOU | tee -a  levels.txt index.html
 elif echo $HANKOU $PREVHANKOU | awk '{exit !( $1 < $2)}'; then
-    printf "Hankou/Wuhan: %s ↓\n" $HANKOU >> levels.txt
+    printf "Hankou/Wuhan: %s ↓\n" $HANKOU | tee -a  levels.txt index.html
 else
-    printf "Hankou/Wuhan: %s ‒\n" $HANKOU >> levels.txt
+    printf "Hankou/Wuhan: %s ‒\n" $HANKOU | tee -a  levels.txt index.html
 fi
 
-printf "\nCURRENT FLOW RATES\n" >> levels.txt
+printf "<br/>" >> index.html
+printf "<br/>" >> index.html
+
+printf "\nCURRENT FLOW RATES\n" | tee -a  levels.txt index.html
+
+printf "<br/>" >> index.html
 
 printf "Prev outflow is: %s\n" $OUTFLOW
 printf "New outflow is: %s\n" $NEWOUTFLOW
+
+
 if (( $NEWOUTFLOW > $OUTFLOW )); then
-    printf "Outflow: %s m³/s ↑\n" $NEWOUTFLOW >> levels.txt
+    printf "Outflow: %s m³/s ↑\n" $NEWOUTFLOW | tee -a levels.txt index.html
 elif (( $NEWOUTFLOW < $OUTFLOW )); then
-    printf "Outflow: %s m³/s ↓\n" $NEWOUTFLOW >> levels.txt
+    printf "Outflow: %s m³/s ↓\n" $NEWOUTFLOW | tee -a  levels.txt index.html
 else
-    printf "Outflow: %s m³/s ‒\n" $NEWOUTFLOW >> levels.txt
+    printf "Outflow: %s m³/s ‒\n" $NEWOUTFLOW | tee -a  levels.txt index.html
 fi
+
+printf "<br/>" >> index.html
 
 printf "Prev inflow is: %s\n" $PREVINFLOW
+
 printf "New inflow is: %s\n" $NEWINFLOW
+
 if (( $NEWINFLOW > $PREVINFLOW )); then
-    printf "Inflow: %s m³/s ↑\n" $NEWINFLOW >> levels.txt
+    printf "Inflow: %s m³/s ↑\n" $NEWINFLOW | tee -a  levels.txt index.html
 elif (( $NEWINFLOW < $PREVINFLOW )); then
-    printf "Inflow: %s m³/s ↓\n" $NEWINFLOW >> levels.txt
+    printf "Inflow: %s m³/s ↓\n" $NEWINFLOW | tee -a  levels.txt index.html
 else
-    printf "Inflow: %s m³/s ‒\n" $NEWINFLOW >> levels.txt
+    printf "Inflow: %s m³/s ‒\n" $NEWINFLOW | tee -a  levels.txt index.html
 fi
 
-# aws s3 cp levels.txt s3://3gd.slenk.com/index.html
+printf "<br/>" >> index.html
+printf "<br/>" >> index.html
+
+cp  levels.txt /mnt/obs/tgd/levels.txt
+printf "taking a break for the weekend. stay safe." >> index.html
+printf "<br/>" >> index.html
+printf "&nbsp; -derek" >> index.html
+printf "</body></html>" >> index.html
+
+sed -i 's/↑/(up)/g' index.html
+sed -i 's/↓/(down)/g' index.html
+sed -i 's/‒/(no change)/g' index.html
+sed -i 's/³/^3/g' index.html
+
+aws s3 cp index.html s3://3gd.slenk.com/index.html
 # aws s3 cp csv/ s3://3gd.slenk.com/csv --recursive
